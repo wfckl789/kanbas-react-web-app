@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Assignments</title>
+  </head>
+  <body>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                <div id="sidebar1"></div>
+            </td>
+            <td>
+                <div id="sidebar2"></div>
+            </td>
+            <td>
+                <div style="margin: 0 0 0 50px;">
+                    <input placeholder="Search for Assignments"/>
+                    <button>Group</button>
+                    <button>Assignment</button>
+                    <select>
+                        <option selected>Edit Assignment Dates</option>
+                    </select>
+
+                    <ul>
+                        <li>
+                            <h3>ASSIGNMENTS 40% of Total</h3>
+                            <select>
+                                <option selected value="Edit">Edit</option>
+                                <option>Speed Grader</option>
+                                <option>Duplicate</option>
+                                <option>Delete</option>
+                                <option>Move To...</option>
+                                <option>Send To...</option>
+                                <option>Copy To...</option>
+                                <option>Share to Commons</option>
+                            </select>
+                        </li>
+                        <li><a href="edit.html">A1 - ENV + HTML Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">A2 - CSS + BOOTSTRAP Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">A3 - JS + REACT Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">A4 - STATE + REDUX Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">A5 - NODE + SESSION Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">A6 - MONGO + MONGOOSE Mutiple Modules</a> | Not available yet</li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h3>QUIZZES 10% of Total</h3>
+                            <select>
+                                <option selected value="Edit">Edit</option>
+                                <option>Speed Grader</option>
+                                <option>Duplicate</option>
+                                <option>Delete</option>
+                                <option>Move To...</option>
+                                <option>Send To...</option>
+                                <option>Copy To...</option>
+                                <option>Share to Commons</option>
+                            </select>
+                        </li>
+                        <li><a href="edit.html">Q1 - HTML Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">Q2 - CSS Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">Q3 - JS.ES6 Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">Q4 - NODE Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">Q5 - MONGO Mutiple Modules</a> | Not available yet</li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <h3>EXAM 20% of Total</h3>
+                            <select>
+                                <option selected value="Edit">Edit</option>
+                                <option>Speed Grader</option>
+                                <option>Duplicate</option>
+                                <option>Delete</option>
+                                <option>Move To...</option>
+                                <option>Send To...</option>
+                                <option>Copy To...</option>
+                                <option>Share to Commons</option>
+                            </select>
+                        </li>
+                        <li><a href="edit.html">Midterm Mutiple Modules</a> | Not available yet</li>
+                        <li><a href="edit.html">Final Mutiple Modules</a> | Not available yet</li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <h3>PROJECT 30% of Total</h3>
+                            <select>
+                                <option selected value="Edit">Edit</option>
+                                <option>Speed Grader</option>
+                                <option>Duplicate</option>
+                                <option>Delete</option>
+                                <option>Move To...</option>
+                                <option>Send To...</option>
+                                <option>Copy To...</option>
+                                <option>Share to Commons</option>
+                            </select>
+                        </li>
+                        <li><a href="edit.html">Project Mutiple Modules</a> | Not available yet</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+  </body>
+<script>
+    let sides1 = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"]
+    let sides2 = ["Home", "Modules", "Piazza", "Zoom Meetings", "Assignments", "Quizzes", "Grades", "People", "Panopto Video", "Discussions", "Announcements", "Pages", "Files", "Robries", "Outcomes", "Collaborations", "Syllabus", "Settings"]
+    let str1 = '<ul>', str2 = '<ul>'
+
+    sides1.forEach((side) => {
+        str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+    });
+    str1 += '</ul>'
+
+    sides2.forEach((side) => {
+        str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+    });
+    str2 += '</ul>'
+
+    document.getElementById("sidebar1").innerHTML = str1;
+    document.getElementById("sidebar2").innerHTML = str2;
+</script>
+</html>

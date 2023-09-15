@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Details Tab</title>
+    </head>
+    <body>
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <div id="sidebar1"></div>
+                </td>
+                <td>
+                    <div id="sidebar2"></div>
+                </td>
+                <td>
+                    <div class="navigator">
+                        <ul>
+                            <li><a href="CourseDetailsTab.html">Course Details</a></li>
+                            <li><a href="#">Sections</a></li>
+                            <li><a href="CourseNavigationTab.html">Navigation</a></li>
+                            <li><a href="#">Apps</a></li>
+                            <li><a href="#">Feature Options</a></li>
+                            <li><a href="#">Integrations</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <form>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td id="firstRow">
+                                            <h2>Course Details</h2>
+                                            <h4>Image: <button>Choose Image</button></h4>
+                                            <h4>Name:</h4>
+                                            <h4>Course Template: <input value="Enable course as a Course"/></h4>
+                                            <h4>Time Zone:
+                                                <select>
+                                                    <option selected>EST</option>
+                                                </select>
+                                            </h4>
+                                            <h4>SIS ID: </h4>CS....
+                                            <h4>Subaccount: <a>CS</a></h4>
+                                            <h4>Term: 2024</h4>
+                                            <h4>Participation:
+                                                <select>
+                                                    <option selected>Term</option>
+                                                </select>
+                                                <h4>Start</h4>
+                                                <input type="date">
+                                                <h4>End</h4>
+                                                <input type="date">
+                                            </h4>
+                                        </td>
+
+                                        <td id="secondRow">
+                                            <input type="checkbox" /> xxxxxxxxxxx
+                                            <input type="checkbox" /> xxxxxxxxxxx
+                                            <h4>Default due time
+                                                <select>
+                                                    <option selected>11:59pm</option>
+                                                </select>
+                                            </h4>
+                                            <h4>Language
+                                                <select>
+                                                    <option selected>English</option>
+                                                </select>
+                                            </h4>
+                                            <h4>Description
+                                                <textarea></textarea>
+                                            </h4>
+                                            ...other form field
+                                            <br>
+                                            <button>Update Course Details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+      let sides1 = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"]
+      let sides2 = ["Home", "Modules", "Piazza", "Zoom Meetings", "Assignments", "Quizzes", "Grades", "People", "Panopto Video", "Discussions", "Announcements", "Pages", "Files", "Robries", "Outcomes", "Collaborations", "Syllabus", "Settings"]
+      let courseStatus = ["Import Existing Content", "Import From Commons", "Choose Home Page", "View Course Stream", "New Announcement", "New Analytics", "View Course Notification"]
+      let str1 = '<ul>', str2 = '<ul>', str3 = '<ul>'
+
+      sides1.forEach((side) => {
+        str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+      });
+      str1 += '</ul>'
+
+      sides2.forEach((side) => {
+        str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+      });
+      str2 += '</ul>'
+
+      courseStatus.forEach((l) => {
+        str3 += '<li>'+ '<a href="#">' + l + '</a>' + '</li>'
+      })
+
+      document.getElementById("sidebar1").innerHTML = str1;
+      document.getElementById("sidebar2").innerHTML = str2;
+    </script>
+
+    <style>
+        .navigator ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+        }
+        .navigator li {
+            float: left;
+        }
+        .navigator li a {
+            display: block;
+            color: darkred;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navigator li a:hover:not(.active) {
+            background-color: gainsboro;
+        }
+        .navigator li a.active {
+            color: black;
+            background-color: gainsboro;
+        }
+    </style>
+</html>
+
