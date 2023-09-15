@@ -5,7 +5,7 @@
         <title>Home</title>
     </head>
     <body>
-        <table>
+        <table width="100%">
             <tbody>
             <tr>
                 <td>
@@ -15,7 +15,7 @@
                     <div id="sidebar2"></div>
                 </td>
                 <td>
-                    <div style="margin: 0 0 0 50px">
+                    <div>
                         <button id="b1">Collapse All</button>
                         <button id="b2">View Progress</button>
                         <select id="b3">
@@ -97,12 +97,28 @@
         let str1 = '<ul>', str2 = '<ul>', str3 = '<ul>'
 
         sides1.forEach((side) => {
-            str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+            if (side === "Account") {
+                str1 += '<li>'+ '<a href="profile/index.html">' + side + '</a>' + '</li>'
+            } else if (side === "Courses") {
+                str1 += '<li>'+ '<a href="home.html">' + side + '</a>' + '</li>'
+            } else {
+                str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+            }
         });
         str1 += '</ul>'
 
         sides2.forEach((side) => {
-           str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+            if (side === "Home") {
+                str2 += '<li>'+ '<a href="home.html">' + side + '</a>' + '</li>';
+            } else if (side === "Assignments") {
+                str2 += '<li>'+ '<a href="assignments/index.html">' + side + '</a>' + '</li>';
+            } else if (side === "Grades") {
+                str2 += '<li>'+ '<a href="grades.html">' + side + '</a>' + '</li>';
+            } else if (side === "Settings") {
+                str2 += '<li>'+ '<a href="CourseDetailsTab.html">' + side + '</a>' + '</li>';
+            } else {
+                str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>';
+            }
         });
         str2 += '</ul>'
 

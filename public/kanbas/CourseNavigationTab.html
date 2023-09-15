@@ -5,7 +5,7 @@
         <title>Course Navigation</title>
     </head>
     <body>
-        <table>
+        <table width="100%">
             <tbody>
                 <tr>
                     <td>
@@ -25,6 +25,7 @@
                                 <li><a href="#">Integrations</a></li>
                             </ul>
                         </div>
+                        <h3>Navigation</h3>
                         Drag and drop items to reorder them in the course navigation.
                         <ul>
                             <li>Home</li>
@@ -53,14 +54,30 @@
         let str1 = '<ul>', str2 = '<ul>';
 
         sides1.forEach((side) => {
-            str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+            if (side === "Account") {
+                str1 += '<li>'+ '<a href="profile/index.html">' + side + '</a>' + '</li>';
+            } else if (side === "Courses") {
+                str1 += '<li>'+ '<a href="home.html">' + side + '</a>' + '</li>';
+            } else {
+                str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>';
+            }
         });
-        str1 += '</ul>';
+        str1 += '</ul>'
 
         sides2.forEach((side) => {
-            str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
+            if (side === "Assignments") {
+                str2 += '<li>' + '<a href="assignments/index.html">' + side + '</a>' + '</li>';
+            } else if (side === "Grades") {
+                str2 += '<li>' + '<a href="grades.html">' + side + '</a>' + '</li>';
+            } else if (side === "Home") {
+                str2 += '<li>' + '<a href="home.html">' + side + '</a>' + '</li>';
+            } else if (side === "Settings") {
+                str2 += '<li>'+ '<a href="CourseDetailsTab.html">' + side + '</a>' + '</li>';
+            } else {
+                str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>';
+            }
         });
-        str2 += '</ul>';
+        str2 += '</ul>'
 
         document.getElementById("sidebar1").innerHTML = str1;
         document.getElementById("sidebar2").innerHTML = str2;
