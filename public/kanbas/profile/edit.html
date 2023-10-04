@@ -3,82 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <link href="../../vendors/fontawesome/css/all.css" rel="stylesheet"/>
 </head>
 <body>
-    <table width="100%">
-        <tbody>
-        <tr>
-            <td>
-                <div id="sidebar1"></div>
-            </td>
-            <td>
-                <div id="sidebar2"></div>
-            </td>
-            <td>
-                <div>
-                    <h3>WENBO QIAN</h3>
-                    Name:* <input />
-                    Pronouns: <select><option selected>None</option></select>
-                    <br><br>
-                    Title: <input />
-                    <h3>Contact</h3>
-                    No registered services, you can add some on the <a href="#">settings</a> page.
-                    <h3>Biography</h3>
-                    Student, Software Engineer
-                    <br>
-                    <textarea></textarea>
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                    <h3>Title</h3><h3>URL</h3>
-                    <input value="YouTube" /> →
-                    <input value="https://www.youtube.com" />
-                    <button>Remove</button>
-                    <br>
-                    <button>Add anther link</button>
-                    <br>
-                    <button onclick="backToProfile()">Cancel</button>
-                    <button>Save Profile</button>
-                    <br>
-                    <button>Edit Profile</button>
-                    <button onclick="backToProfile()">Cancel Editing</button>
+    <div class="row">
+        <div class="col-7">
+            <div class="row">
+                <div class="col-1" style="background-color: black; width: 85px">
+                <h1 style="color: #ff253a; margin-left: 30px;">N</h1>
+                <ul class="nav flex-column nav-pills main-nav" style="min-height: 1000px">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#account">
+                            <i class="far fa-user-circle fa-lg" style="color: #9ca1ab; margin: 5px 5px 5px 20px;"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 8px">Account</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#dashboard" >
+                            <i class="fas fa-tachometer-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 3px">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-book fa-lg" style="color: #ff4242; margin: 5px 5px 5px 15px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 9px">Courses</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-calendar-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 15px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 7px">Calendar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-inbox fa-lg" style="color: #ff4242; margin: 5px 5px 5px 10px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 15px">Inbox</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-clock fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 10px">History</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-laptop fa-lg" style="color: #ff4242; margin: 5px 5px 5px 8px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 12px">Studio</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-sign-out-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 3px">Commons</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-question-circle fa-lg" style="color: #ff4242; margin: 5px 5px 5px 10px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 15px">Help</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content col-11">
+                <div class="tab-pane active adopt-tab" id="account">
+                    <div class="row" style="margin-top: 90px">
+                        <div class="col-3" style="width: 190px; ">
+                            <ul class="nav flex-column nav-pills account-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Notifications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Files</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Settings</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">ePortfolios</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Shared Content</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">The Hub</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Qwickly Course Tools</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Global Announcement</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-8">
+                                    <i class="far fa-user-circle fa-8x" style="size: 50px"></i>
+                                    <br><br>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="name">Name:*</label>
+                                            <input  class="form-control" id="name" value="Wenbo Qian">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pronouns">Pronouns:</label>
+                                            <select class="form-control" id="pronouns">
+                                                <option>None</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="title">Title:</label>
+                                            <input class="form-control" id="title">
+                                        </div>
+
+                                        <h5>Contact</h5>
+                                        <p>No registered services, you can add some on the
+                                            <a href="#" style="color: firebrick">settings </a>
+                                            page.
+                                        </p>
+                                        <br>
+
+                                        <h5>Biography</h5>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">Student, Software Engineer, Cloud Computing.</textarea>
+                                        </div>
+                                        <br>
+
+                                        <h5>Links</h5>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <h5>Title</h5>
+                                                <input class="form-control" id="links-title" value="YouTube">
+                                            </div>
+                                            <div class="col-5">
+                                                <h5>URL</h5>
+                                                <input class="form-control" id="links-url" value="https://www.youtube.com/watch?v=_yx7-pYX8bc">
+                                            </div>
+                                            <button type="submit" class="btn btn-light">Add another link</button>
+                                        </div>
+                                        <br>
+                                        <button type="button" class="btn btn-light" onclick="backToProfile()">Cancel</button>
+                                        <button type="button" class="btn btn-danger" onclick="backToProfile()">Save Profile</button>
+                                    </form>
+                                </div>
+
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-light" onclick="backToProfile()">
+                                        <i class="fas fa-pencil-alt fa-1x" style="color: #303030;"></i> Cancel Editing
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+                <div class="tab-pane adopt-tab" id="dashboard">
+                    <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                        <h3 style="margin: 10px 0px 0px 0px">Dashboard<hr style="width: 1000px"></h3>
+                        <h5 style="margin-left: 20px">Published Courses (8)<hr style="width: 1000px"></h5>
+
+                    </div>
+
+                    <div class="row" style="margin-left: 20px">
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 0px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: cornflowerblue;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 0px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #b5d6f7;max-width: 180px;" class="d-inline-block text-truncate">CS5610 11550 Web Development</a>
+                                        <br><a style="font-size: 14px">CS5610 11550.202674</a>
+                                        <br><a style="font-size: 10px">SEC 01 Fall 2023 [VTL-2-OL]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 0px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/b3c3d1" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #b5d6f7;max-width: 180px;" class="d-inline-block text-truncate">CS5610 11550 Web Development</a>
+                                        <br><a style="font-size: 14px">CS5610 11550.202674</a>
+                                        <br><a style="font-size: 10px">SEC 01 Fall 2023 [VTL-2-OL]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 15px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/5cb7f5" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #5cb7f5;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 15px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/f5b05c" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #f5b05c;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 15px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/c6cbd2" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #c6cbd2;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 15px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/0053b8" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #0053b8;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 0px 0px 15px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: cornflowerblue;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5010 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-5">
+                    <!--            Todo...-->
+                </div>
+        </div>
+    </div>
+<!--<table width="100%">-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--        <td>-->
+<!--            <div id="sidebar1"></div>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <div id="sidebar2"></div>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <div>-->
+<!--                <h3>WENBO QIAN</h3>-->
+<!--                Name:* <input />-->
+<!--                Pronouns: <select><option selected>None</option></select>-->
+<!--                <br><br>-->
+<!--                Title: <input />-->
+<!--                <h3>Contact</h3>-->
+<!--                No registered services, you can add some on the <a href="#">settings</a> page.-->
+<!--                <h3>Biography</h3>-->
+<!--                Student, Software Engineer-->
+<!--                <br>-->
+<!--                <textarea></textarea>-->
+<!--                <h3>Links</h3>-->
+<!--                <ul>-->
+<!--                    <li><a href="#">LinkedIn</a></li>-->
+<!--                </ul>-->
+<!--                <h3>Title</h3><h3>URL</h3>-->
+<!--                <input value="YouTube" /> →-->
+<!--                <input value="https://www.youtube.com" />-->
+<!--                <button>Remove</button>-->
+<!--                <br>-->
+<!--                <button>Add anther link</button>-->
+<!--                <br>-->
+<!--                <button onclick="backToProfile()">Cancel</button>-->
+<!--                <button>Save Profile</button>-->
+<!--                <br>-->
+<!--                <button>Edit Profile</button>-->
+<!--                <button onclick="backToProfile()">Cancel Editing</button>-->
+<!--            </div>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+        </div>
+    </div>
 </body>
 <script>
-    let sides1 = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"]
-    let sides2 = ["Notifications", "Profile", "Files", "Settings", "ePortfolios", "Shared Content", "The Hub", "Qwickly Course Tools", "Global Announcements"]
-    let str1 = '<ul>', str2 = '<ul>';
-
-    sides1.forEach((side) => {
-        if (side === "Courses") {
-            str1 += '<li>'+ '<a href="../home.html">' + side + '</a>' + '</li>'
-        } else if (side === "Account") {
-            str1 += '<li>'+ '<a href="../profile/index.html">' + side + '</a>' + '</li>'
-        } else {
-            str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
-        }
-    });
-    str1 += '</ul>';
-
-    sides2.forEach((side) => {
-        if (side === "Profile") {
-            str2 += '<li>'+ '<a href="index.html">' + side + '</a>' + '</li>'
-        } else {
-            str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
-        }
-    });
-    str2 += '</ul>';
-
-    document.getElementById("sidebar1").innerHTML = str1;
-    document.getElementById("sidebar2").innerHTML = str2;
-
     function backToProfile() {
         location.href = "index.html";
     }
 </script>
+
+<style>
+    .main-nav > .nav-item > .nav-link {
+        padding: 5px 5px 5px 5px;
+        margin: 5px 0px 5px 10px;
+        color: white;
+        border-radius: 0;
+    }
+    .main-nav > .nav-item > .nav-link.active {
+        color: red;
+        background-color: white;
+    }
+
+    .account-nav > .nav-item > .nav-link {
+        min-height: 15px;
+        padding: 0;
+        margin-left: 20px;
+        border-radius: 0;
+        color: firebrick;
+    }
+    .account-nav > .nav-item > .nav-link.active {
+        color: black;
+        background-color: white;
+        border-left-style: solid;
+        border-left-color: black;
+        border-left-width: 3px;
+    }
+
+    .card {
+        min-height: 210px;
+    }
+    .card-body {
+        padding: 0px;
+        margin: 15px 15px 15px 15px;
+    }
+    .card-text {
+        padding: 0;
+    }
+</style>
 </html>

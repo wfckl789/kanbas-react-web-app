@@ -3,64 +3,1213 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <link href="../../vendors/fontawesome/css/all.css" rel="stylesheet"/>
 </head>
 <body>
-    <table width="100%">
-        <tbody>
-        <tr>
-            <td>
-                <div id="sidebar1"></div>
-            </td>
-            <td>
-                <div id="sidebar2"></div>
-            </td>
-            <td>
-                <div>
-                    <p>WENBO QIAN's Profile</p>
-                    <h3>WENBO QIAN <button onclick="toProfileEdit()">Edit Profile</button></h3>
-                    <h3>Contact</h3>
-                    <p>No registered services, you can add some on the settings page.</p>
-                    <h3>Software Engineering</h3>
-                    <p>Student, Software Engineer,Cloud Computing.</p>
-                    <h3>Links</h3>
-                    <a href="#">LinkedIn</a>
+    <div class="row">
+        <div class="col-6 col-sm-1 col-md-1 col-xl-1">
+            <div style="background-color: black; width: 85px">
+                <h1 style="color: #ff253a; margin-left: 30px;">N</h1>
+                <ul class="nav flex-column nav-pills main-nav" style="min-height: 1000px">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#account">
+                            <i class="far fa-user-circle fa-lg" style="color: #9ca1ab; margin: 5px 5px 5px 20px;"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 8px">Account</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#dashboard" id="anchor-dashboard">
+                            <i class="fas fa-tachometer-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 3px">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#course" id="anchor-course">
+                            <i class="fas fa-book fa-lg" style="color: #ff4242; margin: 5px 5px 5px 15px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 9px">Courses</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-calendar-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 15px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 7px">Calendar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-inbox fa-lg" style="color: #ff4242; margin: 5px 5px 5px 10px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 15px">Inbox</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-clock fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 10px">History</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-laptop fa-lg" style="color: #ff4242; margin: 5px 5px 5px 8px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 12px">Studio</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="fas fa-sign-out-alt fa-lg" style="color: #ff4242; margin: 5px 5px 5px 12px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 3px">Commons</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#">
+                            <i class="far fa-question-circle fa-lg" style="color: #ff4242; margin: 5px 5px 5px 10px; padding: 5px"></i>
+                            <br>
+                            <p style="font-size: 12px; margin: 0px 5px 5px 15px">Help</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--                右侧实际内容-->
+        <div class="col-6 col-sm-9 col-md-9 col-xl-9">
+            <div class="tab-content">
+                <!--        account页-->
+                <div class="tab-pane active adopt-tab" id="account">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <i class="fas fa-grip-lines fa-lg" style="color: darkred; margin: 5px 20px 0 0px"> </i>
+                            <li class="breadcrumb-item"><a style="color: darkred"> Wenbo Qian's Profile</a></li>
+                        </ol>
+                    </nav>
+                    <hr width="100%">
+                    <div class="row">
+                        <div class="col-3">
+                            <ul class="nav flex-column nav-pills account-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Notifications</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#profileInfoPage" id="anchor-profile">
+                                        <p style="font-size: 17px; margin-left: 8px">Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: none">
+                                    <a class="nav-link" data-toggle="tab" href="#profileEditPage" id="anchor-profile-edit">
+                                        <p style="font-size: 17px; margin-left: 8px">profileEditPage</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Files</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Settings</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">ePortfolios</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Shared Content</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">The Hub</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Qwickly Course Tools</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#">
+                                        <p style="font-size: 17px; margin-left: 8px">Global Announcement</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-9">
+                            <div class="tab-content">
+                                <!--              profile信息页-->
+                                <div class="tab-pane active adopt-tab" id="profileInfoPage">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <i class="far fa-user-circle fa-8x" style="size: 50px"></i>
+                                            <br><br>
+                                            <h5>Wenbo Qian</h5>
+                                            <br>
+                                            <h5>Contact</h5>
+                                            <p>No registered services, you can add some on the
+                                                <a href="#" style="color: firebrick">settings </a>
+                                                page.
+                                            </p>
+                                            <br>
+                                            <h5>Biography</h5>
+                                            <p>Student, Software Engineer, Cloud Computing.</p>
+                                            <h5>Links</h5>
+                                            <i class="fas fa-link fa-sm"></i><a href="https://www.youtube.com/watch?v=_yx7-pYX8bc" style="color: firebrick"> YouTube</a>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-light" onclick="clickNav('anchor-profile', 'anchor-profile-edit')">
+                                                <i class="fas fa-pencil-alt fa-1x" style="color: #303030;"></i> Edit Profile
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                    edit profile页-->
+                                <div class="tab-pane adopt-tab" id="profileEditPage">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <i class="far fa-user-circle fa-8x" style="size: 50px"></i>
+                                            <br><br>
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="name">Name:*</label>
+                                                    <input  class="form-control" id="name" value="Wenbo Qian">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="pronouns">Pronouns:</label>
+                                                    <select class="form-control" id="pronouns">
+                                                        <option>None</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="title">Title:</label>
+                                                    <input class="form-control" id="title">
+                                                </div>
+
+                                                <h5>Contact</h5>
+                                                <p>No registered services, you can add some on the
+                                                    <a href="#" style="color: firebrick">settings </a>
+                                                    page.
+                                                </p>
+                                                <br>
+
+                                                <h5>Biography</h5>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">Student, Software Engineer, Cloud Computing.</textarea>
+                                                </div>
+                                                <br>
+
+                                                <h5>Links</h5>
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <h5>Title</h5>
+                                                        <input class="form-control" id="links-title" value="YouTube">
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h5>URL</h5>
+                                                        <input class="form-control" id="links-url" value="https://www.youtube.com/watch?v=_yx7-pYX8bc">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-light">Add another link</button>
+                                                </div>
+                                                <br>
+                                                <button type="button" class="btn btn-light" onclick="clickNav('anchor-profile', 'anchor-profile')">Cancel</button>
+                                                <button type="button" class="btn btn-danger" onclick="clickNav('anchor-profile', 'anchor-profile')">Save Profile</button>
+                                            </form>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <button type="button" class="btn btn-light" onclick="clickNav('anchor-profile', 'anchor-profile')">
+                                                <i class="fas fa-pencil-alt fa-1x" style="color: #303030;"></i> Cancel Editing
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 
+                <!--          dashboard页-->
+                <div class="tab-pane adopt-tab" id="dashboard">
+                    <div style="margin-left: -50px" class="row">
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <h3 style="margin: 10px 0px 0px 0px">Dashboard<hr style="width: 1000px"></h3>
+                            <h5 style="margin-left: 20px">Published Courses (8)<hr style="width: 1000px"></h5>
+                        </div>
+                    </div>
+                    <div style="margin-left: -30px"  class="row">
+                        <!--                card 1-->
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: cornflowerblue;max-width: 180px;" class="d-inline-block text-truncate" >CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5111 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                card 2-->
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #b5d6f7; max-width: 180px;" class="d-inline-block text-truncate nav-item">CS5610 11550 Web Development</a>
+                                        <br><a style="font-size: 14px">CS5222 11550.202674</a>
+                                        <br><a style="font-size: 10px">SEC 01 Fall 2023 [VTL-2-OL]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                card 3-->
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/b3c3d1" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #b5d6f7;max-width: 180px;" class="d-inline-block text-truncate">CS5610 11550 Web Development</a>
+                                        <br><a style="font-size: 14px">CS5333 11550.202674</a>
+                                        <br><a style="font-size: 10px">SEC 01 Fall 2023 [VTL-2-OL]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--              card 4-->
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/5cb7f5" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #5cb7f5;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5444 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/f5b05c" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #f5b05c;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5555 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/c6cbd2" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #c6cbd2;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5666 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/0053b8" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: #0053b8;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS777 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="card" style="margin: 20px 0px 10px 0px">
+                                <img src="https://via.placeholder.com/300x170/b5d6f7" class="card-img-top" alt="...">
+                                <div class="card-body" onclick="clickNav('anchor-course', 'anchor-course')">
+                                    <p class="card-text" style="font-size: 12px">
+                                        <a style="color: cornflowerblue;max-width: 180px;" class="d-inline-block text-truncate">CS5010 20580 Programming Design Paradigm</a>
+                                        <br><a style="font-size: 14px">CS5888 20580.202410</a>
+                                        <br><a style="font-size: 10px">SEC 09 Fall 2023 [SJO-2-TR]</a>
+                                        <br><br><i class="fas fa-newspaper fa-lg"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--        course页-->
+                <div style="margin-left: -50px" class="tab-pane adopt-tab" id="course">
+                    <div class="container">
+                        <div class="row">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <i class="fas fa-grip-lines fa-lg" style="color: darkred; margin: 5px 20px 0 25px"> </i>
+                                    <li class="breadcrumb-item"><a href="#" style="color: darkred"> CS5450.12631.20210</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page" id="course-bread">Modules</li>
+                                    <li class="breadcrumb-item" aria-current="page" id="course-bread-name" style="display: none"></li>
+                                    <hr style="width: 1000px; margin-left: 20px">
+                                </ol>
+                            </nav>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-2">
+                                <ul class="nav flex-column nav-pills course-nav" onclick="removeBreadCourseName()">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#course-home" onclick="changeBread('Modules')">
+                                            <p style="font-size: 17px; margin-left: 8px">Home</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Modules</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Piazza</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Zoom Meetings</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#course-assignment" id="anchor-course-assignment" onclick="changeBread('Assignments')">
+                                            <p style="font-size: 17px; margin-left: 8px">Assignments</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="display: none">
+                                        <a class="nav-link" data-toggle="tab" href="#course-assignment-edit" id="anchor-course-assignment-edit">Edit Course Assignment</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Quizzes</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#course-grade" onclick="changeBread('Grades')">
+                                            <p style="font-size: 17px; margin-left: 8px">Grades</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">People</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Panopto Video</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Discussions</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Announcements</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Pages</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Files</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Rubrics</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Outcomes</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Collaborations</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Syllabus</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#">
+                                            <p style="font-size: 17px; margin-left: 8px">Progress Reports(EAB Navigate)</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#course-settings" onclick="changeBread('Settings')">
+                                            <p style="font-size: 17px; margin-left: 8px">Settings</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-10 col-sm-10 col-md-10">
+                                <div class="tab-content">
+                                    <div class="tab-pane active adopt-tab" id="course-home">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-12 col-md-11">
+                                                    <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-secondary float-right"><i class="fas fa-ellipsis-v fa-sm"></i></button>
+                                                    <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-danger float-right"><i class="fas fa-plus fa-sm"></i> Module</button>
+
+                                                    <div class="dropdown float-right" style="margin: 5px 5px 5px 5px">
+                                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="far fa-check-circle fa-sm" style="color: #5ec15b"></i> Publish All
+                                                        </a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-secondary float-right">View Progress</button>
+                                                    <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-secondary float-right">Collapse All</button>
+                                                    <br><br>
+
+                                                    <hr style="width: 700px; ">
+                                                    <div class="list-group" id="accordion">
+                                                        <a class="list-group-item list-group-item-action list-group-item-secondary" data-toggle="collapse" href="#collapse1">
+                                                            <i class="fas fa-grip-vertical fa-sm"></i> <i class="fas fa-caret-down fa-sm"></i> Week 0 - INTRO
+                                                            <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="fas fa-plus fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="fas fa-caret-down fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                        </a>
+                                                        <div id="collapse1" class="collapse show">
+                                                            <div class="list-group">
+                                                                <a href="#" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm"></i> LEARNING OBJECTIVES
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="#" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i> Introduction to the course
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="#" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i> Creating a development environment
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=_yx7-pYX8bc" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i>
+                                                                    <i class="fas fa-link fa-sm" style="color: #8ec87e;"></i> <span style="color: firebrick">Introduction to Web Development</span>
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=_yx7-pYX8bc" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i>
+                                                                    <i class="fas fa-link fa-sm" style="color: #8ec87e;"></i> <span style="color: firebrick">Creating an HTTP server with Node.js</span>
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#collapse2">
+                                                            <i class="fas fa-grip-vertical fa-sm"></i> <i class="fas fa-caret-down fa-sm"></i> WEEK 1 - Full Stack
+                                                            <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="fas fa-plus fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="fas fa-caret-down fa-sm float-right" style="margin-right: 10px"></i>
+                                                            <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                        </a>
+                                                        <div id="collapse2" class="collapse show">
+                                                            <div class="list-group">
+                                                                <a href="#" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i> Full Stack Developer - Chapter 1 - Introduction
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="#" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i> Introduction to the course
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=_yx7-pYX8bc" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i>
+                                                                    <i class="fas fa-link fa-sm" style="color: #8ec87e;"></i> <span style="color: firebrick">Creating a React Application</span>
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=_yx7-pYX8bc" class="list-group-item list-group-item-action">
+                                                                    <i class="fas fa-grip-vertical fa-sm" style="margin-right: 20px"></i>
+                                                                    <i class="fas fa-link fa-sm" style="color: #8ec87e;"></i> <span style="color: firebrick">Learning Using Express.js</span>
+                                                                    <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                    <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--                                sidebar(links, buttons)-->
+                                                <div class="col-1 col-sm-1 col-md-1">
+                                                    <p style="text-align: left">Course Status</p>
+                                                    <div class="row">
+                                                        <button type="button" class="btn btn-outline-secondary m-1">Unpublished</button>
+                                                        <button type="button" class="btn btn-outline-success m-1">published</button>
+                                                    </div>
+                                                    <a href="#">Link1</a><br>
+                                                    <a href="#">Link2</a><br>
+                                                    <a href="#">...</a><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane adopt-tab" id="course-assignment-edit">
+                                        <div id="editAssignmentPage" class="m-1">
+                                            <form>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <button type="button" class="btn btn-secondary float-right m-1"><i class="fas fa-ellipsis-v fa-sm"></i></button>
+                                                            <i class="fas fa-check-circle float-right mt-3 mr-2" style="color: #3fae29;">Published</i>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    Assignment Name
+                                                    <input type="text" class="form-control m-2" value="A1 - ENV + HTML">
+                                                    <br>
+                                                    <div class="container border">
+                                                        <p>This assignment describe how to install the development environment for creating and working with Web Applications we will... </p>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-3" style="text-align: right">Points</div>
+                                                        <div class="col-9">
+                                                            <input type="text" class="form-control" style="width: 66%" value="100">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-3" style="text-align: right">Assignment Group</div>
+                                                        <div class="col-9">
+                                                            <select class="custom-select col-8">
+                                                                <option selected>Percentage</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-3" style="text-align: right">Display Grade as</div>
+                                                        <div class="col-9">
+                                                            <select class="custom-select col-8">
+                                                                <option selected>Percentage</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                            </select>
+                                                            <br>
+                                                            <div class="form-check m-1">
+                                                                <input class="form-check-input" type="checkbox" value="" id="d1">
+                                                                <label class="form-check-label" for="d1">Do not count this assignment towards the final grade</label><br>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-3" style="text-align: right">Submission Type</div>
+                                                        <div class="col-9">
+                                                            <select class="custom-select col-8">
+                                                                <option selected>Online</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                            </select>
+                                                            <br><br>Online Entry Options
+                                                            <div class="form-check m-1">
+                                                                <input class="form-check-input" type="checkbox" value="" id="c1" checked>
+                                                                <label class="form-check-label" for="c1">TextEntry</label><br>
+                                                                <input class="form-check-input" type="checkbox" value="" id="c2" checked>
+                                                                <label class="form-check-label" for="c2">Website URL</label><br>
+                                                                <input class="form-check-input" type="checkbox" value="" id="c3" checked>
+                                                                <label class="form-check-label" for="c3">Media Recording</label><br>
+                                                                <input class="form-check-input" type="checkbox" value="" id="c4">
+                                                                <label class="form-check-label" for="c4">Student Annotation</label><br>
+                                                                <input class="form-check-input" type="checkbox" value="" id="c5">
+                                                                <label class="form-check-label" for="c5">File Uploads</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-3" style="text-align: right">Assign</div>
+                                                        <div class="col-9">
+                                                            <div class="card" style="width: 23rem;">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">Assign to</h5>
+                                                                    <h6 class="card-subtitle mb-2 text-muted"><input type="text" class="form-control" id="assignTo"></h6>
+                                                                    <h5 class="card-title">Due</h5>
+                                                                    <input type="date" value="2023-09-18-23:59">
+                                                                    <div class="row">
+                                                                        <div class="col-6">Available from<br><input type="date" value="2023-09-18-23:59"></div>
+                                                                        <div class="col-6">Until<br><input type="date" value="2023-09-18-23:59"></div>
+                                                                    </div>
+                                                                    <div class="card-footer mt-1">
+                                                                        <i class="fas fa-plus fa-lg"></i> Add
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <hr style="width: 100%">
+                                            <button type="button" class="btn float-right btn-danger m-1 p-1" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment')">Save</button>
+                                            <button type="button" class="btn btn-secondary float-right m-1 p-1" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment')">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane adopt-tab" id="course-grade">
+                                        <div class="row">
+                                            <div class="col-3"></div>
+                                            <div class="col-9">
+                                                <button class="btn btn-secondary float-right m-1 p-1"><i class="fas fa-cog fa-sm"></i></button>
+                                                <button class="btn btn-secondary float-right m-1 p-1"><i class="fas fa-file-export fa-sm"></i> Export</button>
+                                                <button class="btn btn-secondary float-right m-1 p-1"><i class="fas fa-file-import fa-sm"></i> Import</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                Student Names<br>
+                                                <input type="text" class="m-1 p-1" placeholder="Search Students" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                            <div class="col-6">
+                                                Assignment Names<br>
+                                                <input type="text" class="m-1 p-1t" placeholder="Search Assignments" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary m-1 p-1"><i class="fas fa-filter fa-sm"></i> Apply Filters</button>
+                                        <table class="table table-striped table-lg">
+                                            <thead style="text-align: center">
+                                            <tr>
+                                                <th scope="col">Student Name</th>
+                                                <th scope="col">A1 SETUP<br><p style="font-size: 15px">Out of 100</p></th>
+                                                <th scope="col">A2 HTML<br><p style="font-size: 15px">Out of 100</p></th>
+                                                <th scope="col">A3 CSS<br><p style="font-size: 15px">Out of 100</p></th>
+                                                <th scope="col">A4 BOOSTRAP<br><p style="font-size: 15px">Out of 100</p></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody  style="text-align: center">
+                                            <tr>
+                                                <th scope="row">Chengzhuo qun</th>
+                                                <td>99.5%</td>
+                                                <td>100%</td>
+                                                <td>99.5%</td>
+                                                <td>96.4%</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">tom marsh</th>
+                                                <td>96.4%</td>
+                                                <td>99.5%</td>
+                                                <td>96.4%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Larry Bird</th>
+                                                <td>96.4%</td>
+                                                <td>99.5%</td>
+                                                <td>96.4%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Chengzhuo qun</th>
+                                                <td>99.5%</td>
+                                                <td><input type="text" value="91.5%" class="form-control" style="width: 50%; margin-left: 100px"></td>
+                                                <td>100%</td>
+                                                <td>96.4%</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">tom marsh</th>
+                                                <td>96.4%</td>
+                                                <td>99.5%</td>
+                                                <td>96.4%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Larry Bird</th>
+                                                <td>96.4%</td>
+                                                <td>99.5%</td>
+                                                <td>96.4%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="tab-pane adopt-tab" id="course-assignment">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <input type="text" placeholder="Search for Assignment" aria-label="Search" >
+                                            </div>
+                                            <div class="col-9">
+                                                <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-secondary float-right m-1 p-1"><i class="fas fa-ellipsis-v fa-sm"></i></button>
+                                                <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-danger float-right m-1 p-1"><i class="fas fa-plus fa-sm"></i> Assignment</button>
+                                                <button type="button" style="margin: 5px 5px 5px 5px" class="btn btn-secondary float-right m-1 p-1"><i class="fas fa-plus fa-sm"></i> Group</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="list-group" id="assignments-list">
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary" data-toggle="collapse" href="#assignments">
+                                                <i class="fas fa-grip-vertical fa-sm"></i> <i class="fas fa-caret-down fa-sm"></i> Assignments
+                                                <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                <i class="fas fa-plus fa-sm float-right" style="margin-right: 10px"></i>
+                                                <button type="button" class="btn round btn-sm btn-outline-secondary float-right">40% of Total</button>
+                                            </a>
+                                            <div id="assignments" class="collapse show">
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment-edit'); addBreadCourseName('A1 - ENV + ...')">
+                                                        <div class="row">
+                                                            <div class="col-1">
+                                                                <i class="fas fa-grip-vertical fa-sm"></i>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <div class="d-flex w-100 justify-content-between">A1 SETUP</div>
+                                                                <p>Week 0 - SETUP - ... (9/5/2022) ...</p>
+                                                                <small>Due Sep 18, 2022 at .. | 100 pts</small>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="list-group-item list-group-item-action" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment-edit'); addBreadCourseName('A1 - ENV + ...')">
+                                                        <div class="row">
+                                                            <div class="col-1">
+                                                                <i class="fas fa-grip-vertical fa-sm"></i>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <div class="d-flex w-100 justify-content-between">A2 HTML</div>
+                                                                <p>Week 0 - SETUP - ... (9/5/2022) ...</p>
+                                                                <small>Due Sep 18, 2022 at .. | 100 pts</small>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="list-group-item list-group-item-action" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment-edit'); addBreadCourseName('A1 - ENV + ...')">
+                                                        <div class="row">
+                                                            <div class="col-1">
+                                                                <i class="fas fa-grip-vertical fa-sm"></i>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <div class="d-flex w-100 justify-content-between">A3 CSS</div>
+                                                                <p>Week 0 - SETUP - ... (9/5/2022) ...</p>
+                                                                <small>Due Sep 18, 2022 at .. | 100 pts</small>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="list-group-item list-group-item-action" onclick="clickNav('anchor-course-assignment', 'anchor-course-assignment-edit'); addBreadCourseName('A1 - ENV + ...')">
+                                                        <div class="row">
+                                                            <div class="col-1">
+                                                                <i class="fas fa-grip-vertical fa-sm"></i>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <div class="d-flex w-100 justify-content-between"> A4 BOOTSTRAP</div>
+                                                                <p>Week 0 - SETUP - ... (9/5/2022) ...</p>
+                                                                <small>Due Sep 18, 2022 at .. | 100 pts</small>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <i class="fas fa-ellipsis-v fa-sm float-right" style="margin-right: 10px"></i>
+                                                                <i class="far fa-check-circle fa-sm float-right" style="color: #5ec15b;margin-right: 10px"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+<!--                                    course setting页面-->
+                                    <div class="tab-pane adopt-tab" id="course-settings">
+                                        <ul class="nav nav-pills mb-3 course-setting-nav">
+                                            <li class="nav-item">
+                                                <button class="nav-link active m-2" data-toggle="pill" data-target="#course-settings-detail" type="button">Course Details</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link m-2" data-toggle="pill" data-target="#" type="button">Sections</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link m-2" data-toggle="pill" data-target="#course-settings-navigation" type="button">Navigation</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link m-2" data-toggle="pill" data-target="#" type="button">Apps</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link m-2" data-toggle="pill" data-target="#" type="button">Feature Options</button>
+                                            </li>
+                                            <li class="nav-item">
+                                                <button class="nav-link m-2" data-toggle="pill" data-target="#" type="button">Integrations</button>
+                                            </li>
+                                        </ul>
+                                        <hr style="width: 100%">
+
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="course-settings-detail">
+                                                <h4>Course Details</h4>
+                                                <br>
+                                                <form id="course-detail-form">
+                                                    <div class="row">
+                                                        <div class="col-6 col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Image</div>
+                                                                    <div class="col-8">
+                                                                        <input type="text" class="form-control" style="width: 100%" value="100">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Name: </div>
+                                                                    <div class="col-8">CS54320 23156 web development</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Course Code: </div>
+                                                                    <div class="col-8" style="width: 100%">CS54320 23156</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Blueprint Course: </div>
+                                                                    <div class="col-8" style="width: 100%">No</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Course Template: </div>
+                                                                    <div class="col-8" style="width: 100%">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="f1" disabled>
+                                                                        <label class="form-check-label" for="f1">Enable course as a Course Template</label><br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Time Zone: </div>
+                                                                    <div class="col-8" style="width: 100%">
+                                                                        <select class="custom-select col-8">
+                                                                            <option selected>Eastern Time(US & Canada)(-5:00/-4:00)</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">SIS ID: </div>
+                                                                    <div class="col-8" style="width: 100%">CS45501.0346.16556</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Subaccount: </div>
+                                                                    <div class="col-8" style="width: 100%"><a style="color: firebrick">CS45501.0346.16556</a></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Term: </div>
+                                                                    <div class="col-8" style="width: 100%">20241_fall_2131.136516</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-4" style="text-align: left">Participation: </div>
+                                                                    <div class="col-8" style="width: 100%">
+                                                                        <select class="custom-select col-8">
+                                                                            <option selected>Term</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                        <br>
+                                                                        Start<br>
+                                                                        <input type="date"><br>
+                                                                        End<br>
+                                                                        <input type="date"><br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="row">
+                                                                <div class="col-4" style="text-align: left"></div>
+                                                                <div class="col-8" style="width: 100%">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="f4">
+                                                                    <label class="form-check-label" for="f4">Restrict students from viewing course before term start date</label><br>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-4" style="text-align: left">Default due time: </div>
+                                                                <div class="col-8" style="width: 100%">
+                                                                    <select class="custom-select col-8">
+                                                                        <option selected>Account default(11:59pm)</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                    </select>
+                                                                    <br>
+                                                                    This influences the user interface for setting due dates.
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-4" style="text-align: left">Language:</div>
+                                                                <div class="col-8" style="width: 100%">
+                                                                    <select class="custom-select col-8">
+                                                                        <option selected>Not set(user-configurable, defaults to English)</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                    </select>
+                                                                    <br>
+                                                                    This influences the user interface for setting due dates.
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <div class="row">
+                                                                <div class="col-4" style="text-align: left">Description: </div>
+                                                                <div class="col-8" style="width: 100%">
+                                                                    <textarea class="form-control" rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row justify-content-end">
+                                                                <button type="button" class="btn btn-danger m-2">Update Course Details</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="course-settings-section">section</div>
+                                            <div class="tab-pane fade" id="course-settings-navigation">
+                                                Drag and drop items to reorder them in the course navigation.
+                                                <div class="row m-2">
+                                                    <div class="col-6 col-md-6">
+                                                        <div class="list-group">
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">Home</button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Modules<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Piazza<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Zoom Meetings<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Assignments<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Quizzes<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Grades<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                People<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Pampto Video<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <br>
+                                                            Drag items here to hide them from students
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Chat<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 col-md-6">
+                                                        <div class="list-group">
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Top Jat<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Attendance<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                Syllabus<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="list-group-item list-group-item-action" style="text-align: left;">
+                                                                VHL Central<i class="fas fa-ellipsis-v fa float-right mt-1"></i></button>
+                                                            <button type="button" class="btn btn-danger float-left p-1 m-1 col-2">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="course-settings-app">...</div>
+                                            <div class="tab-pane fade" id="course-settings-option">...</div>
+                                            <div class="tab-pane fade" id="course-settings-integration">...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<style>
+    .main-nav > .nav-item > .nav-link {
+        padding: 5px 5px 5px 5px;
+        margin: 5px 0px 5px 10px;
+        color: white;
+        border-radius: 0;
+    }
+    .main-nav > .nav-item > .nav-link.active {
+        color: red;
+        background-color: white;
+    }
+
+    .account-nav > .nav-item > .nav-link {
+        min-height: 15px;
+        padding: 0;
+        margin-left: 20px;
+        border-radius: 0;
+        color: firebrick;
+    }
+    .account-nav > .nav-item > .nav-link.active {
+        color: black;
+        background-color: white;
+        border-left-style: solid;
+        border-left-color: black;
+        border-left-width: 3px;
+    }
+
+    .course-nav > .nav-item > .nav-link {
+        min-height: 15px;
+        padding: 0;
+        margin-left: 20px;
+        border-radius: 0;
+        color: firebrick;
+    }
+    .course-nav > .nav-item > .nav-link.active {
+        color: black;
+        background-color: white;
+        border-left-style: solid;
+        border-left-color: black;
+        border-left-width: 3px;
+    }
+
+    .course-setting-nav > .nav-item > .nav-link {
+        min-height: 15px;
+        padding: 0;
+        margin-left: 20px;
+        border-radius: 0;
+        color: firebrick;
+    }
+    .course-setting-nav > .nav-item > .nav-link.active {
+        color: black;
+        background-color: white;
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+    }
+
+    .breadcrumb{
+        background-color: white;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: '>';
+        color: #6c757d;
+    }
+
+    .card {
+        min-height: 210px;
+    }
+    .card-body {
+        padding: 0px;
+        margin: 15px 15px 15px 15px;
+    }
+    .card-text {
+        padding: 0;
+    }
+</style>
+
 <script>
-    let sides1 = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"]
-    let sides2 = ["Notifications", "Profile", "Files", "Settings", "ePortfolios", "Shared Content", "The Hub", "Qwickly Course Tools", "Global Announcements"]
-    let str1 = '<ul>', str2 = '<ul>';
+    function addBreadCourseName(text) {
+        let p = document.getElementById('course-bread-name');
+        p.innerText += text;
+        p.style.display = 'block';
+    }
 
-    sides1.forEach((side) => {
-        if (side === "Courses") {
-            str1 += '<li>'+ '<a href="../home.html">' + side + '</a>' + '</li>'
-        } else if (side === "Account") {
-            str1 += '<li>'+ '<a href="../profile/index.html">' + side + '</a>' + '</li>'
-        } else {
-            str1 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
-        }
-    });
-    str1 += '</ul>';
+    function removeBreadCourseName() {
+        document.getElementById('course-bread-name').style.display = 'none';
+    }
 
-    sides2.forEach((side) => {
-        if (side === "Profile") {
-            str2 += '<li>'+ '<a href="index.html">' + side + '</a>' + '</li>'
-        } else {
-            str2 += '<li>'+ '<a href="#">' + side + '</a>' + '</li>'
-        }
-    });
-    str2 += '</ul>';
+    function changeBread(text) {
+        document.getElementById('course-bread').innerHTML = text;
+    }
 
-    document.getElementById("sidebar1").innerHTML = str1;
-    document.getElementById("sidebar2").innerHTML = str2;
+    function clickNav(showNav, navTo) {
+        let event = new MouseEvent('click', {
+            view: window,
+            bubbles: true,
+            cancelable: true
+        });
 
-    function toProfileEdit () {
-        location.href = "edit.html";
+        let targetElement = document.getElementById(navTo);
+        targetElement.dispatchEvent(event);
+        // let shownElement = document.getElementById(showNav);
     }
 </script>
 </html>
