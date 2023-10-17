@@ -1,0 +1,12 @@
+.course-breadcrumb > .breadcrumb-item {
+    color: #c73838;
+}
+
+.course-breadcrumb > .breadcrumb-item.active {
+    color: black;
+}
+
+.breadcrumb > .breadcrumb-item + .breadcrumb-item::before {
+    content: '>';
+    color: grey;
+}

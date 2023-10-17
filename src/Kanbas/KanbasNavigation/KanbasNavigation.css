@@ -1,0 +1,17 @@
+.nav > .nav-item > .nav-link {
+    margin-left: -15px;
+    color: white;
+    border-radius: 0;
+    height: 75px;
+    text-align: center;
+}
+
+.nav > .nav-item > .nav-link.active {
+    color: red;
+    background-color: white;
+}
+
+.nav-icon {
+    font-size: 30px;
+    color: orangered;
+}

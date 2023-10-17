@@ -1,0 +1,24 @@
+.course-nav > .nav-item {
+    max-height: 45px;
+    padding: 0;
+    border-radius: 0;
+}
+
+.course-nav > .nav-item > .nav-link {
+    max-height: 45px;
+    padding-left: 8px;
+    margin-left: 40px;
+    border-radius: 0;
+    color: firebrick;
+    text-align: left;
+}
+
+.course-nav > .nav-item > .nav-link.active {
+    color: black;
+    background-color: white;
+    max-height: 45px;
+    border-left-style: solid;
+    border-left-color: black;
+    border-left-width: 3px;
+
+}
