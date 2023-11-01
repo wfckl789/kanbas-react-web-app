@@ -9,11 +9,11 @@ import Grades from "./Grades";
 import {HiOutlineMenu} from "react-icons/hi";
 import './Courses.css';
 
-function Courses() {
+function Courses({ courses }) {
     const { courseId } = useParams();
     const { pathname } = useLocation();
     const pathArr = pathname.split("/");
-    const course = db.courses.find((course) => course._id === courseId);
+    const course = courses.find((course) => course._id === courseId);
     const isEditCourse = pathArr.length === 6;
     return (
         <div>
