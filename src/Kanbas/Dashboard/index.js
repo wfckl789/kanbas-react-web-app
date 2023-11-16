@@ -4,7 +4,7 @@ import DashboardCard from "../Component/DashboardCard";
 import {useState} from "react";
 
 function Dashboard(
-{ courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }
+    { courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }
 ) {
     const onSetCourse = (course) => setCourse(course);
 
@@ -25,7 +25,7 @@ function Dashboard(
                     <input value={course.endDate} className="form-control w-25 m-1" type="date"
                            onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
                     <button onClick={addNewCourse} type="button" className="btn btn-success m-1">Add</button>
-                    <button onClick={updateCourse} type="button" className="btn btn-primary m-1">Update</button>
+                    <button onClick={() => updateCourse(course)} type="button" className="btn btn-primary m-1">Update</button>
                 </div>
             </div>
 

@@ -12,7 +12,7 @@ const DashboardCard = (props) => {
                     <p className="card-text" style={{fontSize: 12}}>
                         <a style={{color: "cornflowerblue"}} className="d-inline-block text-truncate" >
                             <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item">
-                                {course.name || ''}
+                                { course && course.name && course.name.length > 20 ? course.name.slice(0, 20) + "..." : course.name || '' }
                                 <button
                                     className="btn btn-sm btn-warning m-1"
                                     onClick={(event) => {
@@ -25,7 +25,7 @@ const DashboardCard = (props) => {
                                     className="btn btn-sm btn-danger m-1"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        onDelete(course._id);
+                                        onDelete(course);
                                     }}>
                                     Delete
                                 </button>

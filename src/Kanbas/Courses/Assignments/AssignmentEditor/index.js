@@ -1,33 +1,45 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {FaRegCheckCircle} from "react-icons/fa";
 import {HiMiniEllipsisVertical} from "react-icons/hi2";
 import {useDispatch, useSelector} from "react-redux";
-import {addAssignment, deleteAssignment, setAssignment, updateAssignment} from "../assignmentsReducer";
+import {addAssignments, deleteAssignments, setAssignments, setAssignment, updateAssignments} from "../assignmentsReducer";
+import * as client from "../client";
+import axios from "axios";
 
 function AssignmentEditor() {
     const { courseId, assignmentId } = useParams();
-    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
-    const assignment = assignments.find( (assignment) => assignment._id === assignmentId ) || {};
-    let obj = {
-        _id: assignmentId === "new" ? new Date().getTime().toString() : assignmentId,
-        title: assignment.title || '',
-        course: courseId,
-        description: assignment.description || '',
-        points: assignment.points || '',
-        dueDate: assignment.dueDate || '',
-        availableFromDate: assignment.availableFromDate || '',
-        availableUntilDate: assignment.availableUntilDate || ''
-    };
-    const [assignmentObj, setAssignmentObj] = useState(obj);
+    const [assignment, setAssignment] = useState({
+        _id: assignmentId
+    });
+    useEffect(() => {
+        client.getAssignment(assignmentId).then((res) => {
+            setAssignment({ ...res,
+                title: res.title || '',
+                description: res.description || '',
+                points: res.points || '',
+                dueDate: res.dueDate || '',
+                availableFromDate: res.availableFromDate || '',
+                availableUntilDate: res.availableUntilDate || '',
+                isNew: res.isNew
+            });
+        })
+    }, [assignmentId]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleSave = () => {
-        console.log(assignmentObj);
-        if (assignmentId && assignmentId === "new") {
-            dispatch(addAssignment(assignmentObj));
-        } else if (assignmentId && assignmentId !== "new") {
-            dispatch(updateAssignment(assignmentObj));
+    const handleAddAssignment = async (courseId, assignment) => {
+        const createRes = await client.createAssignment(courseId, assignment);
+        dispatch(addAssignments(assignment));
+    };
+    const handleUpdateAssignment = async (assignment) => {
+        const updateRes = await client.updateAssignment(assignment);
+        dispatch(updateAssignments(assignment));
+    };
+    const handleSave = async () => {
+        if (assignment.isNew === true) {
+            await handleAddAssignment(courseId, assignment);
+        } else if (assignment.isNew === false) {
+            await handleUpdateAssignment(assignment);
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
@@ -45,24 +57,24 @@ function AssignmentEditor() {
                 <div className="form-group m-1 w-75">
                     <label htmlFor="assignmentName">Assignment Name</label>
                     <input
-                        value={ assignmentObj.title }
-                        onChange={(e) => setAssignmentObj({...assignmentObj, title: e.target.value})}
+                        value={ assignment.title }
+                        onChange={(e) => setAssignment({...assignment, title: e.target.value})}
                         className="form-control" id="assignmentName" placeholder="assignment name:"
                     />
                 </div>
                 <div className="form-group m-1 w-75">
                     <textarea
-                        value={ assignmentObj.description }
+                        value={ assignment.description }
                         rows="3"
-                        onChange={(e) => setAssignmentObj({...assignmentObj, description: e.target.value})}
+                        onChange={(e) => setAssignment({...assignment, description: e.target.value})}
                     />
                 </div>
                 <div className="form-group m-1 w-75">
                     Points
                     <input
                         type="text"
-                        value={ assignmentObj.points }
-                        onChange={(e) => setAssignmentObj({...assignmentObj, points: e.target.value})}
+                        value={ assignment.points }
+                        onChange={(e) => setAssignment({...assignment, points: e.target.value})}
                     />
                 </div>
                 <div className="form-group m-1 w-75">
@@ -75,8 +87,8 @@ function AssignmentEditor() {
                                     <input
                                         type="date"
                                         id="assignDueDate"
-                                        value={assignmentObj.dueDate}
-                                        onChange={(e) => setAssignmentObj({...assignmentObj, dueDate: e.target.value})}
+                                        value={assignment.dueDate}
+                                        onChange={(e) => setAssignment({...assignment, dueDate: e.target.value})}
                                     />
                                 </div>
                                 <br/>
@@ -85,15 +97,15 @@ function AssignmentEditor() {
                                     <input
                                         type="date"
                                         id="availableFromDate"
-                                        value={assignmentObj.availableFromDate}
-                                        onChange={(e) => setAssignmentObj({...assignmentObj, availableFromDate: e.target.value})}
+                                        value={assignment.availableFromDate}
+                                        onChange={(e) => setAssignment({...assignment, availableFromDate: e.target.value})}
                                     />
                                     <label htmlFor="availableUntilDate"> Until </label>
                                     <input
                                         type="date"
                                         id="availableUntilDate"
-                                        value={assignmentObj.availableUntilDate}
-                                        onChange={(e) => setAssignmentObj({...assignmentObj, availableUntilDate: e.target.value})}
+                                        value={assignment.availableUntilDate}
+                                        onChange={(e) => setAssignment({...assignment, availableUntilDate: e.target.value})}
                                     />
                                 </div>
                             </form>

@@ -1,32 +1,46 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import db from "../../Database";
 import {BsGripVertical} from "react-icons/bs";
 import {BiCaretRight, BiDotsVerticalRounded} from "react-icons/bi";
 import {AiFillCaretDown, AiOutlinePlus} from "react-icons/ai";
 import {useDispatch, useSelector} from "react-redux";
-import {addAssignment, deleteAssignment, setAssignment, setDeleteId, updateAssignment} from "./assignmentsReducer";
+import {
+    addAssignments,
+    deleteAssignments,
+    setAssignment,
+    setAssignments,
+    updateAssignments
+} from "./assignmentsReducer";
 import {setModule} from "../Modules/modulesReducer";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Example from "./DeleteModal";
 import DeleteModal from "./DeleteModal";
+import * as client from "./client";
 
 function Assignments() {
     const { courseId } = useParams();
+    useEffect(() => {
+        client.findAssignmentsForCourse(courseId)
+            .then((assignments) =>
+                dispatch(setAssignments(assignments))
+            );
+    }, [courseId]);
     const assignments = useSelector((state) => state.assignmentsReducer.assignments);
     const assignment = useSelector((state) => state.assignmentsReducer.assignment);
     const dispatch = useDispatch();
-    const courseAssignments = assignments.filter(
-        (assignment) => assignment.course === courseId);
+    // const courseAssignments = assignments.filter(
+    //     (assignment) => assignment.course === courseId);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleShowDelete = () => {
-        console.log("delete", assignment._id);
-        dispatch(deleteAssignment(assignment._id));
+    const handleShowDelete = async () => {
+        console.log("delete", assignment);
+        const deleteRes = await client.deleteAssignment(assignment);
+        dispatch(deleteAssignments(assignment._id));
     }
 
     return (
@@ -35,9 +49,13 @@ function Assignments() {
                 {/*<h2>Assignments for course {courseId}</h2>*/}
                 <div>
                     <Link
-                        to={`/Kanbas/Courses/${courseId}/Assignments/${"new"}`}
+                        to={`/Kanbas/Courses/${courseId}/Assignments/${new Date().getTime().toString()}`}
                     >
-                        <button type="button" className="btn btn-danger mx-2 float-end"><AiOutlinePlus/> Add Assignment</button>
+                        <button
+                            type="button"
+                            className="btn btn-danger mx-2 float-end">
+                            <AiOutlinePlus/> Add Assignment
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -59,7 +77,7 @@ function Assignments() {
                 </a>
                 <div className="collapse show">
                     <div className="list-group">
-                        {courseAssignments.map((assignment) => {
+                        {assignments.map((assignment) => {
                             return (
                                 <Link
                                     key={assignment._id}

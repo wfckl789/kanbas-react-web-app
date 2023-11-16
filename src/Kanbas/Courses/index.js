@@ -8,12 +8,28 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import {HiOutlineMenu} from "react-icons/hi";
 import './Courses.css';
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {useSelector} from "react-redux";
 
-function Courses({ courses }) {
+function Courses() {
     const { courseId } = useParams();
+    const [course, setCourse] = useState({});
+    // const URL = "http://localhost:4000/api/courses";
+    // const URL = "https://kanbas-node-server-app-a4m7.onrender.com/api/courses";
+    const API_BASE = process.env.REACT_APP_API_BASE;
+    const URL = `${API_BASE}/courses`;
+    const findCourseById = async (courseId) => {
+        const response = await axios.get(
+            `${URL}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
     const { pathname } = useLocation();
     const pathArr = pathname.split("/");
-    const course = courses.find((course) => course._id === courseId);
     const isEditCourse = pathArr.length === 6;
     return (
         <div>
@@ -21,7 +37,7 @@ function Courses({ courses }) {
                 <nav>
                     <ol className="breadcrumb m-2 course-breadcrumb">
                         <HiOutlineMenu style={{color: "#c73838", fontSize:30, margin: " 5px 20px 0 25px"}}/>
-                        <li className="breadcrumb-item mt-1" style={{color: "#c73838"}}>{course.number || ''}</li>
+                        <li className="breadcrumb-item mt-1" style={{color: "#c73838"}}>{course.name || ''}</li>
                         <li className={`breadcrumb-item mt-1 ${!isEditCourse && "active"}`}>{isEditCourse ? pathArr[pathArr.length - 2] : pathArr[pathArr.length - 1] || ''}</li>
                         { isEditCourse ?  <li className="breadcrumb-item mt-1 active">{pathArr[5] || ''}</li> : <></> }
                     </ol>
