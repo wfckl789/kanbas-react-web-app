@@ -3,14 +3,14 @@ import axios from "axios";
 
 function Nav() {
     const { pathname } = useLocation();
-    const navigate = useNavigate();
-    const BASE = process.env.REACT_APP_BASE;
-    const triggerURL = `${BASE}/a5/add/1/1`;
-    const trigger = async (URL) => {
-        const response = await axios.get(URL);
-        console.log("trigger add api: ", response)
-        navigate('/Kanbas');
-    }
+    // const navigate = useNavigate();
+    // const BASE = process.env.REACT_APP_BASE;
+    // const triggerURL = `${BASE}/a5/add/1/1`;
+    // const trigger = async (URL) => {
+    //     const response = await axios.get(URL);
+    //     console.log("trigger add api: ", response)
+    //     navigate('/Kanbas');
+    // }
     return (
         <nav className="nav nav-tabs mt-2">
             <Link to="/Labs/a3"
@@ -20,8 +20,8 @@ function Nav() {
             <Link to="/hello"
                   className={`nav-link ${pathname.includes("hello") ? "active" : ""}`}>Hello</Link>
             <Link
-                // to="/Kanbas"
-                  onClick={() => trigger(triggerURL)}
+                to="/Kanbas"
+                //   onClick={() => trigger(triggerURL)}
                   className={`nav-link ${pathname.includes("Kanbas") ? "active" : ""}`}>
                 Kanbas
             </Link>

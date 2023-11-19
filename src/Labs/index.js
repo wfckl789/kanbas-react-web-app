@@ -10,15 +10,15 @@ import Assignment5 from "./a5";
 import axios from "axios";
 
 function Labs() {
-    const BASE = process.env.REACT_APP_BASE;
-    const triggerWelcomeURL = `${BASE}/a5/welcome`;
-    const trigger = async (URL) => {
-        const response = await axios.get(URL);
-        console.log("trigger welcome: ", response)
-    }
-    useEffect(() => {
-        trigger(triggerWelcomeURL);
-    }, []);
+    // const BASE = process.env.REACT_APP_BASE;
+    // const triggerWelcomeURL = `${BASE}/a5/welcome`;
+    // const trigger = async (URL) => {
+    //     const response = await axios.get(URL);
+    //     console.log("trigger welcome: ", response)
+    // }
+    // useEffect(() => {
+    //     trigger(triggerWelcomeURL);
+    // }, []);
     return(
         <Provider store={store}>
             <div>

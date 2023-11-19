@@ -1,11 +1,67 @@
 import { Link } from "react-router-dom";
 import db from "../Database";
 import DashboardCard from "../Component/DashboardCard";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import { Spinner } from 'react-bootstrap';
+import axios from "axios";
 
-function Dashboard(
-    { courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }
-) {
+function Dashboard() {
+    const API_BASE = process.env.REACT_APP_API_BASE;
+    const URL = `${API_BASE}/courses`;
+
+    const [loading, setLoading] = useState(false);
+    const [courses, setCourses] = useState([]);
+    const [course, setCourse] = useState({
+        name: "New Course",      number: "New Number",
+        startDate: "2023-09-10", endDate: "2023-12-15",
+    });
+    useEffect(() => {
+        findAllCourses();
+    }, []);
+    const findAllCourses = async () => {
+        try {
+            setLoading(true);
+            await new Promise((resolve) => setTimeout(resolve, 8000));
+            const response = await axios.get(URL);
+            setCourses(response.data);
+            setLoading(false);
+        } catch (e) {
+            console.log("fetch course error: ", e)
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const addNewCourse = async () => {
+        const response = await axios.post(URL, course);
+        setCourses([
+            ...courses,
+            response.data,
+        ]);
+        setCourse({ name: "", number: "", startDate: "", endDate: "" });
+        // setCourses([...courses, { ...course, _id: new Date().getTime() }]);
+    };
+
+    const deleteCourse = async (course) => {
+        const response = await axios.delete(
+            `${URL}/${course._id}`
+        );
+        setCourses(courses.filter((c) => c._id !== course._id));
+    };
+
+    const updateCourse = async (course) => {
+        console.log("updateCourse", course)
+        const response = await axios.put(
+            `${URL}/${course._id}`,
+            course
+        );
+        console.log("updateCourse response", response)
+        setCourses(
+            courses.map((c) => {
+                return c._id === course._id ? course : c;
+            })
+        );
+    };
     const onSetCourse = (course) => setCourse(course);
 
     return (
@@ -28,7 +84,22 @@ function Dashboard(
                     <button onClick={() => updateCourse(course)} type="button" className="btn btn-primary m-1">Update</button>
                 </div>
             </div>
+            {loading && (
+                <div>
+                    <div className="text-center">
+                        <div className="spinner-border text-danger m-3" style={{width: '100px', height: '100px'}} role="status"></div>
+                        <br/>
+                        Loading Courses...
+                        <br/>
+                        <button className="btn btn-primary m-2" type="button" disabled>
+                            Please Wait for about 10 Seconds to Wake Up Node Server : )
+                            <br/>
+                            This is due to the restriction of Render: <p className="text-warning">"Free instance type will spin down with inactivity."</p>
+                        </button>
+                    </div>
 
+                </div>
+            )}
             <div className="row" style={{marginLeft: 40}}>
                 {courses.map((course) => (
                     <DashboardCard
