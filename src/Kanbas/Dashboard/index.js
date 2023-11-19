@@ -21,7 +21,7 @@ function Dashboard() {
     const findAllCourses = async () => {
         try {
             setLoading(true);
-            await new Promise((resolve) => setTimeout(resolve, 8000));
+            // await new Promise((resolve) => setTimeout(resolve, 8000));
             const response = await axios.get(URL);
             setCourses(response.data);
             setLoading(false);
