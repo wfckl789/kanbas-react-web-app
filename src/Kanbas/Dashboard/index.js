@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import db from "../Database";
 import DashboardCard from "../Component/DashboardCard";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Spinner } from 'react-bootstrap';
 import axios from "axios";
 
@@ -91,10 +91,11 @@ function Dashboard() {
                         <br/>
                         Loading Courses...
                         <br/>
-                        <button className="btn btn-primary m-2" type="button" disabled>
-                            Please Wait for about 10 Seconds to Wake Up Node Server : )
+                        <button className="btn btn-outline-secondary m-2" type="button" disabled>
+                            Please Wait for 30 Seconds to Wake Up Node Server : )
                             <br/>
-                            This is due to the restriction of Render: <p className="text-warning">"Free instance type will spin down with inactivity."</p>
+                            <p className="text-danger">The server will spin down if no request is sent to it within 15 minutes. </p>
+                            Due to the restriction of Render: <p className="text-warning">"Free instance type will spin down with inactivity. (15 minutes)"</p>
                         </button>
                     </div>
 

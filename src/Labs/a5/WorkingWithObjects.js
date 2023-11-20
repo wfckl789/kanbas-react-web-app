@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function WorkingWithObjects() {
+    const BASE = process.env.REACT_APP_BASE;
     const [assignment, setAssignment] = useState({
         id: 1,
         title: "NodeJS Assignment",
@@ -10,7 +11,7 @@ function WorkingWithObjects() {
         completed: false,
         score: 0,
     });
-    const URL = "https://kanbas-node-server-app-a4m7.onrender.com/a5/assignment";
+    const URL = `${BASE}/a5/assignment`;
     const fetchAssignment = async () => {
         const response = await axios.get(`${URL}`);
         setAssignment(response.data);

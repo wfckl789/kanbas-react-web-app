@@ -1,24 +1,27 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function EncodingParametersInURLs() {
     const [a, setA] = useState(34);
     const [b, setB] = useState(23);
     const [welcome, setWelcome] = useState("");
     const [result, setResult] = useState(0);
+    const BASE = process.env.REACT_APP_BASE;
     const fetchSum = async (a, b) => {
         const response = await
-            axios.get(`https://kanbas-node-server-app-a4m7.onrender.com/a5/add/${a}/${b}`);
+            axios.get(`${BASE}/a5/add/${a}/${b}`);
         setResult(response.data);
     };
     const fetchSubtraction = async (a, b) => {
         const response = await axios.get(
-            `https://kanbas-node-server-app-a4m7.onrender.com/a5/subtract/${a}/${b}`);
+            `${BASE}/a5/subtract/${a}/${b}`);
         setResult(response.data);
     };
 
     const fetchWelcome = async () => {
-        const response = await axios.get("https://kanbas-node-server-app-a4m7.onrender.com/a5/welcome");
+        const response = await axios.get(`${BASE}/a5/welcome`);
         setWelcome(response.data);
     };
     useEffect(() => {
@@ -52,23 +55,23 @@ function EncodingParametersInURLs() {
                 className="form-control" type="number" value={b}/>
             <h3>Path Parameters</h3>
             <a
-                href={`https://kanbas-node-server-app-a4m7.onrender.com/a5/add/${a}/${b}`}
+                href={`${BASE}/a5/add/${a}/${b}`}
                 className="btn btn-primary">
                 Add {a} + {b}
             </a>
             <a
-                href={`https://kanbas-node-server-app-a4m7.onrender.com/a5/subtract/${a}/${b}`}
+                href={`${BASE}/a5/subtract/${a}/${b}`}
                 className="btn btn-danger">
                 Substract {a} - {b}
             </a>
             <h3>Query Parameters</h3>
             <a
-                href={`https://kanbas-node-server-app-a4m7.onrender.com/a5/calculator?operation=add&a=${a}&b=${b}`}
+                href={`${BASE}/a5/calculator?operation=add&a=${a}&b=${b}`}
                 className="btn btn-primary">
                 Add {a} + {b}
             </a>
             <a
-                href={`https://kanbas-node-server-app-a4m7.onrender.com/a5/calculator?operation=subtract&a=${a}&b=${b}`}
+                href={`${BASE}/a5/calculator?operation=subtract&a=${a}&b=${b}`}
                 className="btn btn-danger">
                 Substract {a} - {b}
             </a>
