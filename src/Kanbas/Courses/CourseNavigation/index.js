@@ -23,6 +23,5 @@ function CourseNavigation() {
     );
 }
 
-
 export default CourseNavigation;
 

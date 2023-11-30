@@ -10,7 +10,7 @@ import {BsInbox} from "react-icons/bs";
 import {MdOutlineLaptopChromebook} from "react-icons/md";
 
 function KanbasNavigation() {
-    const links = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"];
+    const links = ["User", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"];
     const { pathname } = useLocation();
     const logoURL = "https://instructure-uploads.s3.amazonaws.com/account_145230000000000001/attachments/949/NU_MonoLVX_RGB_RW.png";
     const icons = [
@@ -36,7 +36,7 @@ function KanbasNavigation() {
                                     className={`nav-link ${pathname.includes(link) && "active"}`}
                                 >
                                     {icons[index]}
-                                    <p style={{fontSize: 16}}>{link}</p>
+                                    <p style={{fontSize: 16}}>{link === 'User' ? 'Account' : link}</p>
                                 </Link>
                             </li>
                         );
